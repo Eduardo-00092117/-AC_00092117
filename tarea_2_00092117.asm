@@ -1,5 +1,7 @@
 	org	100h
 
+; --------------------Ejercicio 1----------------------------------
+
 	mov ax, 0d
 	add ax, 9d
 	add ax, 2d
@@ -31,6 +33,8 @@
 	mov cl, "o"
         mov [20Ah], cl
 
+; --------------------Ejercicio 2----------------------------------
+
 	mov ax, 2d
 	mov bx, 2d
 	mov cx, 0d;
@@ -54,5 +58,39 @@ cs4:	mul bx
 
 	cmp cx, 000Bh
 	jb cs4
+
+; --------------------Ejercicio 3----------------------------------
+
+	mov ax, 0d
+	mov bx, 1d
+	mov dx, 0d
+	mov [220h], ax
+	mov [221h], bx
+	mov SI, 0d
+	mov cx, 0000h
+
+	add ax, bx
+	mov [222h], ax
+	
+cso:	mov dx, ax
+	add ax, bx
+	mov bx, dx 
+	mov [SI + 223h], ax
+	inc SI
+	inc cx
+
+	cmp ax, 0100h
+	jb cso
+
+cs2:	inc SI
+	mov dx, ax
+	add ax, bx
+	mov bx, dx 
+	mov [SI + 223h], ax
+	inc SI
+	inc cx
+
+	cmp cx, 000Dh
+	jb cs2
 
 	int 20h
