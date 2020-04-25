@@ -31,38 +31,6 @@
 	mov cl, "o"
         mov [20Ah], cl
 
-	mov ax, 0d
-	mov bx, 1d
-	mov dx, 0d
-	mov [220h], ax
-	mov [221h], bx
-	mov SI, 0d
-	mov cx, 0000h
-
-	add ax, bx; 1 + 0
-	mov [222h], ax
-	
-cso:	mov dx, ax
-	add ax, bx; 1 + 0
-	mov bx, dx 
-	mov [SI + 223h], ax
-	inc SI
-	inc cx
-
-	cmp ax, 0100h
-	jb cso
-
-cs2:	inc SI
-	mov dx, ax
-	add ax, bx; 1 + 0
-	mov bx, dx 
-	mov [SI + 223h], ax
-	inc SI
-	inc cx
-
-	cmp cx, 000Dh
-	jb cs2
-
 	mov ax, 2d
 	mov bx, 2d
 	mov cx, 0d;
