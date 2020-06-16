@@ -17,6 +17,12 @@ lupi:	call 	kb
 	mov 	[305h], si 
 	jmp 	lupi
 
+op:	mov	ax, [300h]
+	mov 	bl, [305h]
+	div	bl
+	mov 	[300h], al
+	ret
+
 valida:	mov 	dx, nl
         call    w_strng
         call	op
@@ -71,14 +77,6 @@ mensa9: mov 	dx, msg9
 
 mensa10: mov 	dx, msg10
         jmp     mensa
-
-pru:	int 20h
-
-op:	mov	ax, [300h]
-	mov 	bl, [305h]
-	div	bl
-	mov 	[300h], al
-	ret
 
 mensa:  call 	w_strng
 	call 	kb
