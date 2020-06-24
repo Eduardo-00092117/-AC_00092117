@@ -5,7 +5,6 @@ section .text
 	call    texto
         mov     dx, msg11
         call 	w_strng
-	call 	kb
 	xor 	si, si
 lupi:	call 	kb
 	cmp 	al, "$"
